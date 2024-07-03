@@ -5,13 +5,21 @@ from selenium.webdriver.firefox.options import Options
 
 
 def getDesistements():
+    """Scrapes the list of all candidate withdrawals for the 2nd round through [Le Monde](https://www.lemonde.fr/les-decodeurs/article/2024/07/01/la-carte-des-resultats-des-legislatives-au-premier-tour-et-le-tableau-des-candidats-qualifies_6245574_4355771.html)
+
+    Returns
+    -------
+    list
+        A list of the names of all candidates who announced their withdrawal from the 2nd round
+    """
+
     driver_options = Options()
     driver_options.add_argument("--headless")
     driver = webdriver.Firefox(driver_options)
     URL = "https://www.lemonde.fr/les-decodeurs/article/2024/07/01/la-carte-des-resultats-des-legislatives-au-premier-tour-et-le-tableau-des-candidats-qualifies_6245574_4355771.html"
     driver.get(URL)
 
-    res = []
+    res: list[str] = []
 
     soup = BeautifulSoup(driver.page_source, "html.parser")
     for candidate_list in soup.find_all("div", class_=["candidat bordure"]):
@@ -26,7 +34,17 @@ def getDesistements():
 
     return res
 
-def addDesistements(excel_file: pd.DataFrame, candidate_desistement_list: list):
+def addDesistements(excel_file: pd.DataFrame, candidate_desistement_list: list[str]):
+    """Adds the withdrawal info to the excel document containing all other candidates and results informations
+
+    Parameters
+    ----------
+    excel_file : pd.DataFrame
+        The excel file taken from [data.gouv.fr](https://www.data.gouv.fr/fr/datasets/resultats-du-1er-tour-des-elections-legislatives-2024-par-circonscription) without the added candidate withdrawals
+    candidate_desistement_list : list[str]
+        The list of the name of each candidate who announced their withdrawal
+    """
+    
     writer = pd.ExcelWriter("lg2024-resultats-circonscriptions-une-ligne-par-candidat2.xlsx", mode = 'a', if_sheet_exists="overlay")
 
     desistements = ["NON"]*4009

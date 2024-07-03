@@ -5,7 +5,7 @@ This is a small python project aiming at creating a reliable calculator for the 
 
 [Excel file containing all the first round candidates as well as their votes](https://www.data.gouv.fr/fr/datasets/resultats-du-1er-tour-des-elections-legislatives-2024-par-circonscription/)
 
-[List of candidates who announced their withdrawal from the 2nd round](https://www.lemonde.fr/les-decodeurs/article/2024/07/02/legislatives-2024-pour-faire-barrage-au-rn-195-candidats-et-candidates-se-sont-deja-desistes-suivez-le-decompte-en-temps-reel_6245837_4355771.html)
+[List of candidates who announced their withdrawal from the 2nd round](https://www.lemonde.fr/les-decodeurs/article/2024/07/01/la-carte-des-resultats-des-legislatives-au-premier-tour-et-le-tableau-des-candidats-qualifies_6245574_4355771.html)
 
 Polls used to predict votes from supporters of different political groups :
 * https://www.francetvinfo.fr/elections/sondages/legislatives-2024-un-tiers-des-electeurs-ont-vote-pour-faire-barrage-a-un-autre-candidat-ou-une-coalition_6636282.html

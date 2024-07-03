@@ -1,6 +1,21 @@
 import pandas as pd
 
-def calculate_circo_winner(candidates: list, beaten_candidates: list) -> dict:
+def calculate_circo_winner(candidates: list[dict[str, str | int]], beaten_candidates: list[dict]) -> dict:
+    """Calculates the potential winner for a specific district
+
+    Parameters
+    ----------
+    candidates : list[dict[str, str | int]]
+        The list of each canditate represented by a dictionary
+    beaten_candidates : list[dict[str, str | int]]
+        The list of each candidate beaten in the first round, represented by a dictionary
+
+    Returns
+    -------
+    dict[str, str | int]
+        the potential winner of the district in the 2nd round, represented by a dictionary
+    """
+
     NFP_COALITION = {"Extrême gauche", "Union de la gauche", "Ecologistes", "Divers gauche", "Parti communiste français", "Parti socialiste", "La France insoumise", "Les Ecologistes", "Parti radical de gauche"}
     REN_COALITION = {"Ensemble ! (Majorité présidentielle)", "Divers", "Horizons", "Divers centre"}
     LR_COALITION = {"Les Républicains", "Union des Démocrates et Indépendants", "Divers droite", "Régionaliste"}
@@ -119,7 +134,22 @@ def calculate_circo_winner(candidates: list, beaten_candidates: list) -> dict:
     return resorted_candidates[0]
 
 
-def calculate_all_winners(excel_file: pd.DataFrame) -> dict[str,dict]:
+def calculate_all_winners(excel_file: pd.DataFrame) -> dict[str, dict[str, int]]:
+    """Calculates the potential winner for every district
+
+    Parameters
+    ----------
+    excel_file : pd.DataFrame
+        The excel file taken from [data.gouv.fr](https://www.data.gouv.fr/fr/datasets/resultats-du-1er-tour-des-elections-legislatives-2024-par-circonscription) with the added candidate withdrawals
+
+    Returns
+    -------
+    dict[str, dict[str, int]]
+        a dict representing :
+            "party_winners" : a list representing the number of seats potentially won by every singular party
+            "coalition_winners" : a list representing the number of seats potentially won by every coalition
+    """
+
     NFP_COALITION = {"Extrême gauche", "Union de la gauche", "Ecologistes", "Divers gauche", "Parti communiste français", "Parti socialiste", "La France insoumise", "Les Ecologistes", "Parti radical de gauche"}
     REN_COALITION = {"Ensemble ! (Majorité présidentielle)", "Divers", "Horizons", "Divers centre"}
     LR_COALITION = {"Les Républicains", "Union des Démocrates et Indépendants", "Divers droite", "Régionaliste"}
