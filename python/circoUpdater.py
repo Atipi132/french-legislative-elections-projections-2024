@@ -45,7 +45,7 @@ def addDesistements(excel_file: pd.DataFrame, candidate_desistement_list: list[s
         The list of the name of each candidate who announced their withdrawal
     """
     
-    writer = pd.ExcelWriter("lg2024-resultats-circonscriptions-une-ligne-par-candidat2.xlsx", mode = 'a', if_sheet_exists="overlay")
+    writer = pd.ExcelWriter("./python/lg2024-resultats-circonscriptions-une-ligne-par-candidat2.xlsx", mode = 'a', if_sheet_exists="overlay")
 
     desistements = ["NON"]*4009
     nb_desis = 0

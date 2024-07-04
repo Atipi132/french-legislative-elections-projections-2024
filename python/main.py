@@ -3,7 +3,7 @@ from circoCalculator import calculate_all_winners
 from circoUpdater import getDesistements, addDesistements
 
 def main():
-    excel_file = pd.read_excel("lg2024-resultats-circonscriptions-une-ligne-par-candidat2.xlsx", "Sheet1")
+    excel_file = pd.read_excel("./python/lg2024-resultats-circonscriptions-une-ligne-par-candidat2.xlsx", "Sheet1")
 
     candidate_desistements = getDesistements()
     addDesistements(excel_file, candidate_desistements)
