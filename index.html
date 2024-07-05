@@ -1,1 +1,80 @@
-<h1>Hello World!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run Python Script</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        function sendRequest() {
+            var settings = {
+            "url": "https://8506vdeujh.execute-api.eu-west-3.amazonaws.com/test/testip",
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": 'https://8506vdeujh.execute-api.eu-west-3.amazonaws.com/test/testip'
+            },
+            "data": JSON.stringify({
+                "arguments": "hello"
+            }),
+            };
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+                return response["body"]
+            }).fail(function (response) {
+                console.log(response);
+                return response;
+            });
+        }
+    </script>
+</head>
+<body>
+    <button onclick="
+        var body = sendRequest()
+        document.getElementById('answerBody').innerHTML = JSON.stringify(body)
+
+        var canvas = document.getElementById('myChart')
+
+        var options = {
+          series: [44, 55, 41, 17, 15],
+          chart: {
+          type: 'donut',
+        },
+        labels : ['NFP', 'PP', 'REN', 'LR', 'RN-LR'],
+        plotOptions: {
+          pie: {
+            startAngle: -90,
+            endAngle: 90,
+            offsetY: 10
+          }
+        },
+        grid: {
+          padding: {
+            bottom: -80
+          }
+        },
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }]
+        };
+
+        var chart = new ApexCharts(document.querySelector('#seatChart'), options);
+        chart.render();
+        ">
+    Run simulation</button>
+    <div id="answerBody"></div>
+    <div id="seatChart" style="width:100%;max-width:700px"></div>
+</body>
+</html>
