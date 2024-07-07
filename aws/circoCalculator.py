@@ -55,12 +55,12 @@ def calculate_circo_winner(candidates: list[dict[str, str | int]], beaten_candid
                 sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]
             # cas voix de gauche et candidats ENS/LR et RN
             elif beaten_candidate["nuance"] in NFP_COALITION and sorted_candidates[0]["nuance"] in REN_COALITION | LR_COALITION and sorted_candidates[1]["nuance"] in RN_LR_COALITION:
-                sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.465
-                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.035
+                sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.42
+                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.04
             # cas voix de gauche et candidats RN et ENS/LR
             elif beaten_candidate["nuance"] in NFP_COALITION and sorted_candidates[1]["nuance"] in REN_COALITION | LR_COALITION and sorted_candidates[0]["nuance"] in RN_LR_COALITION:
-                sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.035
-                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.465
+                sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.04
+                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.42
 
             # cas voix de centre et au moins un candidat ENS/LR
             elif beaten_candidate["nuance"] in REN_COALITION and sorted_candidates[0]["nuance"] in REN_COALITION | LR_COALITION:
@@ -71,10 +71,10 @@ def calculate_circo_winner(candidates: list[dict[str, str | int]], beaten_candid
             # cas voix de centre et candidats RN et NFP
             elif beaten_candidate["nuance"] in REN_COALITION and sorted_candidates[0]["nuance"] in RN_LR_COALITION and sorted_candidates[1]["nuance"] in NFP_COALITION:
                 sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.12
-                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.30
+                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.49
             # cas voix de centre et candidats NFP et RN
             elif beaten_candidate["nuance"] in REN_COALITION and sorted_candidates[1]["nuance"] in RN_LR_COALITION and sorted_candidates[0]["nuance"] in NFP_COALITION:
-                sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.30
+                sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.49
                 sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.12
 
             # cas voix de droite et au moins un candidat LR
@@ -85,20 +85,20 @@ def calculate_circo_winner(candidates: list[dict[str, str | int]], beaten_candid
                 sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]
             # cas voix de droite et candidats RN et NFP
             elif beaten_candidate["nuance"] in LR_COALITION and sorted_candidates[0]["nuance"] in RN_LR_COALITION and sorted_candidates[1]["nuance"] in NFP_COALITION:
-                sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.70
-                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.30
+                sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.54
+                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.28
             # cas voix de droite et candidats NFP et RN
             elif beaten_candidate["nuance"] in LR_COALITION and sorted_candidates[1]["nuance"] in RN_LR_COALITION and sorted_candidates[0]["nuance"] in NFP_COALITION:
-                sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.30
-                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.70
+                sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.54
+                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.28
             # cas voix de droite et candidats RN et ENS
             elif beaten_candidate["nuance"] in LR_COALITION and sorted_candidates[0]["nuance"] in RN_LR_COALITION and sorted_candidates[1]["nuance"] in REN_COALITION:
                 sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.31
-                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.61
+                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.51
             # cas voix de droite et candidats ENS et RN
             elif beaten_candidate["nuance"] in LR_COALITION and sorted_candidates[1]["nuance"] in RN_LR_COALITION and sorted_candidates[0]["nuance"] in REN_COALITION:
-                sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.31
-                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.61
+                sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.51
+                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.31
             # cas voix de droite et candidats ENS et NFP
             elif beaten_candidate["nuance"] in LR_COALITION and sorted_candidates[0]["nuance"] in REN_COALITION and sorted_candidates[1]["nuance"] in NFP_COALITION:
                 sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.92
@@ -126,42 +126,42 @@ def calculate_circo_winner(candidates: list[dict[str, str | int]], beaten_candid
         elif len(sorted_candidates) == 3:
             # cas voix de gauche et au moins un candidat NFP
             if beaten_candidate["nuance"] in NFP_COALITION and sorted_candidates[0]["nuance"] in NFP_COALITION:
-                sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.75
+                sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]
             # cas voix de gauche et au moins un candidat NFP
             elif beaten_candidate["nuance"] in NFP_COALITION and sorted_candidates[1]["nuance"] in NFP_COALITION:
-                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.75
+                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]
             # cas voix de gauche et au moins un candidat NFP
             elif beaten_candidate["nuance"] in NFP_COALITION and sorted_candidates[2]["nuance"] in NFP_COALITION:
-                sorted_candidates[2]["NbVoix"] += beaten_candidate["NbVoix"]*0.75
+                sorted_candidates[2]["NbVoix"] += beaten_candidate["NbVoix"]
             # cas voix de gauche et candidat RN en tête sans candidat NFP
             elif beaten_candidate["nuance"] in NFP_COALITION and sorted_candidates[0]["nuance"] in RN_LR_COALITION:
                 if sorted_candidates[1]["nuance"] in REN_COALITION:
                     sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.07*0.75
                     sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.93*0.75
                 else:
-                    sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.465*0.75
-                    sorted_candidates[2]["NbVoix"] += beaten_candidate["NbVoix"]*0.465*0.75
+                    sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.75*0.75
+                    sorted_candidates[2]["NbVoix"] += beaten_candidate["NbVoix"]*0.25*0.75
 
             # cas voix de centre et au moins un candidat ENS/ LR en tête
             elif beaten_candidate["nuance"] in REN_COALITION and sorted_candidates[0]["nuance"] in REN_COALITION | LR_COALITION:
-                sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.75
+                sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]
             # cas voix de centre et au moins un candidat ENS
             elif beaten_candidate["nuance"] in REN_COALITION and sorted_candidates[1]["nuance"] in REN_COALITION:
-                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.75
+                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]
             # cas voix de centre et au moins un candidat ENS
             elif beaten_candidate["nuance"] in REN_COALITION and sorted_candidates[2]["nuance"] in REN_COALITION:
-                sorted_candidates[2]["NbVoix"] += beaten_candidate["NbVoix"]*0.75
+                sorted_candidates[2]["NbVoix"] += beaten_candidate["NbVoix"]
             # cas voix de centre et candidat NFP en tête sans candidat ENS
             elif beaten_candidate["nuance"] in REN_COALITION and sorted_candidates[0]["nuance"] in NFP_COALITION:
                 if sorted_candidates[1]["nuance"] in LR_COALITION:
-                    sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.75
+                    sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]
                 else:
                     sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.67*0.75
                     sorted_candidates[2]["NbVoix"] += beaten_candidate["NbVoix"]*0.33*0.75
             # cas voix de centre et candidat RN en tête sans candidat ENS
             elif beaten_candidate["nuance"] in REN_COALITION and sorted_candidates[0]["nuance"] in RN_LR_COALITION:
                 if sorted_candidates[1]["nuance"] in LR_COALITION:
-                    sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.75
+                    sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]
                 else:
                     sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.50*0.75
                     sorted_candidates[2]["NbVoix"] += beaten_candidate["NbVoix"]*0.50*0.75
@@ -178,37 +178,37 @@ def calculate_circo_winner(candidates: list[dict[str, str | int]], beaten_candid
             # cas voix de droite et candidats NFP en tête
             elif beaten_candidate["nuance"] in LR_COALITION and sorted_candidates[0]["nuance"] in NFP_COALITION:
                 if sorted_candidates[1]["nuance"] in RN_LR_COALITION:
-                    sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.70*0.75
-                    sorted_candidates[2]["NbVoix"] += beaten_candidate["NbVoix"]*0.30*0.75
+                    sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.70
+                    sorted_candidates[2]["NbVoix"] += beaten_candidate["NbVoix"]*0.30
                 else:
-                    sorted_candidates[2]["NbVoix"] += beaten_candidate["NbVoix"]*0.70*0.75
-                    sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.30*0.75
+                    sorted_candidates[2]["NbVoix"] += beaten_candidate["NbVoix"]*0.50
+                    sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.50
             # cas voix de droite et candidat NFP en deuxième position
             elif beaten_candidate["nuance"] in LR_COALITION and sorted_candidates[1]["nuance"] in NFP_COALITION:
                 if sorted_candidates[0]["nuance"] in RN_LR_COALITION:
-                    sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.70*0.75
-                    sorted_candidates[2]["NbVoix"] += beaten_candidate["NbVoix"]*0.30*0.75
+                    sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.34
+                    sorted_candidates[2]["NbVoix"] += beaten_candidate["NbVoix"]*0.53
                 else:
-                    sorted_candidates[2]["NbVoix"] += beaten_candidate["NbVoix"]*0.70*0.75
-                    sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.30*0.75
+                    sorted_candidates[2]["NbVoix"] += beaten_candidate["NbVoix"]*0.34
+                    sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.53
             # cas voix de droite et candidat NFP en troisième position
             elif beaten_candidate["nuance"] in LR_COALITION and sorted_candidates[2]["nuance"] in NFP_COALITION:
                 if sorted_candidates[0]["nuance"] in RN_LR_COALITION:
-                    sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.70*0.75
-                    sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.30*0.75
+                    sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.34
+                    sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.53
                 else:
-                    sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.70*0.75
-                    sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.30*0.75
+                    sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.53
+                    sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.34
 
             # cas voix de extrême-droite et au moins un candidat RN_LR/LR
             if beaten_candidate["nuance"] in RN_LR_COALITION and sorted_candidates[0]["nuance"] in RN_LR_COALITION | LR_COALITION:
-                sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]*0.75
+                sorted_candidates[0]["NbVoix"] += beaten_candidate["NbVoix"]
             # cas voix de extrême-droite et au moins un candidat RN_LR/LR
             elif beaten_candidate["nuance"] in RN_LR_COALITION and sorted_candidates[1]["nuance"] in RN_LR_COALITION | LR_COALITION:
-                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]*0.75
+                sorted_candidates[1]["NbVoix"] += beaten_candidate["NbVoix"]
             # cas voix de extrême-droite et au moins un candidat RN_LR/LR
             elif beaten_candidate["nuance"] in RN_LR_COALITION and sorted_candidates[2]["nuance"] in RN_LR_COALITION | LR_COALITION:
-                sorted_candidates[2]["NbVoix"] += beaten_candidate["NbVoix"]*0.75
+                sorted_candidates[2]["NbVoix"] += beaten_candidate["NbVoix"]
 
     resorted_candidates = []
     sorted_votes = sorted((candidate["NbVoix"] for candidate in sorted_candidates), reverse=True)

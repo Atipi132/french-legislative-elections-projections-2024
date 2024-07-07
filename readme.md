@@ -15,3 +15,5 @@ Polls used to predict votes from supporters of different political groups :
 * https://legrandcontinent.eu/fr/2024/07/01/legislatives-le-rn-a-t-il-deja-gagne-7-clefs-pour-decoder-lentre-deux-tours/
 
 * https://legrandcontinent.eu/fr/2024/07/02/legislatives-le-rn-nobtiendrait-pas-une-majorite-absolue-mais-la-participation-reste-la-principale-incertitude-premiere-projection-apres-les-desistements/
+
+* https://www.nouvelobs.com/politique/20240704.OBS90673/sondage-exclusif-legislatives-les-electeurs-de-gauche-64-et-d-ensemble-49-sont-prets-a-faire-barrage-au-rn.html
